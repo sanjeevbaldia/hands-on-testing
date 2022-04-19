@@ -5,6 +5,9 @@ pipeline {
     pollSCM 'H/2 * * * *'
   }
 
+  parameters {
+	choice(name: 'BRANCH_NAME', choices: ['main','dev'], description: 'Select the branch to build')
+  }
   stages {
     stage('checkout') {
       steps {
