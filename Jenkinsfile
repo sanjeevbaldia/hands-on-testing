@@ -8,4 +8,11 @@ pipeline {
             }
         }
     }
+	post {
+        always {
+            echo "Cleaning Workspace After Pipeline Execution"
+            cleanWs()
+            deleteDir() /* Cleaning up Workspace */
+        }
+    }
 }
